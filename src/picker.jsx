@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import emojione from "emojione";
-import store from "store";
 import each from "lodash/each";
 import map from "lodash/map";
 import omit from "lodash/omit";
@@ -36,7 +35,7 @@ export default class Picker extends Component {
   };
 
   state = {
-    modifier: store.get("emoji-modifier") || "0",
+    modifier: "0",
     category: false,
     term: this.props.search !== true ? this.props.search : ""
   };
@@ -124,7 +123,6 @@ export default class Picker extends Component {
 
   _onModifierChange = modifier => {
     this.setState({ modifier });
-    store.set("emoji-modifier", modifier);
   };
 
   _renderSearchInput = () => {
